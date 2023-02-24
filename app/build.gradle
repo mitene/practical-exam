@@ -46,6 +46,7 @@ android {
     kapt {
         correctErrorTypes = true
     }
+    namespace 'us.mitene.practicalexam'
 }
 
 dependencies {
