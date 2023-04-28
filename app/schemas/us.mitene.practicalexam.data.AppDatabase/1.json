@@ -2,10 +2,10 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "8e178f0e3f23a65aa89c3591f4853190",
+    "identityHash": "6e1226bef5a0160d9fa88e8d46607005",
     "entities": [
       {
-        "tableName": "RepositoryResponse",
+        "tableName": "GithubRepoResponse",
         "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER NOT NULL, `name` TEXT NOT NULL, `url` TEXT NOT NULL, PRIMARY KEY(`id`))",
         "fields": [
           {
@@ -40,7 +40,7 @@
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '8e178f0e3f23a65aa89c3591f4853190')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '6e1226bef5a0160d9fa88e8d46607005')"
     ]
   }
 }
