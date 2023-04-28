@@ -19,7 +19,7 @@ import us.mitene.practicalexam.data.GithubRepository
 import us.mitene.practicalexam.ui.theme.PracticalexamTheme
 
 class ComposeActivity : ComponentActivity() {
-    private val repository = GithubRepository(this)
+    private val repository by lazy { GithubRepository(this) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
