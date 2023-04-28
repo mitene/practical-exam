@@ -56,9 +56,7 @@ android {
 
 dependencies {
 
-    // preview に問題があるので 1.10.0 に上げることは出来ない
-    // https://stackoverflow.com/questions/75937541/jetpack-compose-preview-render-problem-with-java-lang-classnotfoundexception-an
-    implementation 'androidx.core:core-ktx:1.9.0'
+    implementation 'androidx.core:core-ktx:1.10.0'
     implementation 'androidx.appcompat:appcompat:1.6.1'
     implementation 'com.google.android.material:material:1.8.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
@@ -78,6 +76,8 @@ dependencies {
     implementation "androidx.compose.runtime:runtime-livedata"
     // jetpack compose
     implementation 'androidx.activity:activity-compose:1.7.1'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.1'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-compose:2.6.1'
 
     // for test
     testImplementation 'org.robolectric:robolectric:4.10'
