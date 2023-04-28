@@ -32,12 +32,12 @@ class GithubRepository(
     private val local: GithubDao = DatabaseProvider.githubDao(context),
 ) {
 
-    suspend fun getOrganizationRepositories(): List<GithubRepoEntity> {
+    suspend fun getOrganizationRepositories(organization: String): List<GithubRepoEntity> {
         return withContext(Dispatchers.IO) {
             try {
                 local.getAll().ifEmpty {
                     // remote
-                    val remoteData = remote.organization("mixi-inc")
+                    val remoteData = remote.organization(organization)
                     // save entity
                     local.upsert(*remoteData.toTypedArray())
                     remoteData

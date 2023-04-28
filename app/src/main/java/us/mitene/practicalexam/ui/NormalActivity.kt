@@ -33,7 +33,8 @@ class NormalActivity : AppCompatActivity() {
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.CREATED) {
                 // fetch data
-                val entities = GithubRepository(this@NormalActivity).getOrganizationRepositories()
+                val context = this@NormalActivity
+                val entities = GithubRepository(context).getOrganizationRepositories("mixi-inc")
                 adapter.update(entities)
             }
         }
