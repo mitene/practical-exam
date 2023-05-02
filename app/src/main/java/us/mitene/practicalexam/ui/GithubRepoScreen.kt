@@ -15,7 +15,7 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import us.mitene.practicalexam.data.GithubRepoEntity
 import us.mitene.practicalexam.data.GithubRepository
-import us.mitene.practicalexam.ui.theme.PracticalexamTheme
+import us.mitene.practicalexam.ui.theme.PracticalExamTheme
 
 @Composable
 fun GithubRepoListScreen(
@@ -69,7 +69,7 @@ fun GithubRepoListScreenPreview() {
         GithubRepoEntity("name", "url"),
         GithubRepoEntity("name", "url"),
     )
-    PracticalexamTheme {
+    PracticalExamTheme {
         GithubRepoListScreen(repos = repos)
     }
 }
@@ -77,7 +77,7 @@ fun GithubRepoListScreenPreview() {
 @Preview
 @Composable
 fun RepositoryItemPreview() {
-    PracticalexamTheme {
+    PracticalExamTheme {
         GithubRepoItem("repo", "url")
     }
 }

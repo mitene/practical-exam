@@ -16,7 +16,7 @@ import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
 import us.mitene.practicalexam.data.GithubRepoEntity
 import us.mitene.practicalexam.data.GithubRepository
-import us.mitene.practicalexam.ui.theme.PracticalexamTheme
+import us.mitene.practicalexam.ui.theme.PracticalExamTheme
 
 class ComposeActivity : ComponentActivity() {
     private val repository by lazy { GithubRepository(this) }
@@ -24,7 +24,7 @@ class ComposeActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            PracticalexamTheme {
+            PracticalExamTheme {
                 // A surface container using the 'background' color from the theme
                 Surface(
                     modifier = Modifier.fillMaxSize(),
