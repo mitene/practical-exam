@@ -73,8 +73,10 @@ object Service {
                 val original = chain.request()
 
                 //header
+                // ref : https://docs.github.com/ja/free-pro-team@latest/rest/repos/repos?apiVersion=2022-11-28#list-organization-repositories
                 val request = original.newBuilder()
-                    .header("Accept", "vnd.github.v3+json")
+                    .header("Accept", "application/vnd.github+json")
+                    .header("X-GitHub-Api-Version", "2022-11-28")
                     .method(original.method, original.body)
                     .build()
 
