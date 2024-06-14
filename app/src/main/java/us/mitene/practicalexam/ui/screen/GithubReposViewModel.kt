@@ -1,9 +1,12 @@
-package us.mitene.practicalexam.ui
+package us.mitene.practicalexam.ui.screen
 
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.launch
+import us.mitene.practicalexam.network.GithubApi
 import javax.inject.Inject
 
 @HiltViewModel
@@ -16,7 +19,12 @@ class GithubReposViewModel @Inject constructor() : ViewModel() {
     }
 
     fun fetch() {
-        _uiState.value = GithubReposUiState((1..200).map { it.toString() }.toList())
+        viewModelScope.launch {
+            val result = GithubApi.retrofitService.getRepos()
+            _uiState.value = GithubReposUiState(
+                result.map { it.name }
+            )
+        }
     }
 }
 

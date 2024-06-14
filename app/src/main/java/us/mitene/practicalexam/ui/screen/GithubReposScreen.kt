@@ -1,4 +1,4 @@
-package us.mitene.practicalexam.ui
+package us.mitene.practicalexam.ui.screen
 
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
