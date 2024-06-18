@@ -46,13 +46,13 @@ fun GithubReposLayout(
 @Preview
 @Composable
 private fun Preview() {
-    Scaffold {
+    Scaffold { paddingValues ->
         GithubReposLayout(
             repoNames = (1..200).map { it.toString() }.toList(),
             modifier = Modifier
                 .fillMaxWidth()
                 .wrapContentHeight() // TODO: どんな効果があるか調べる
-                .padding(it)
+                .padding(paddingValues)
         )
     }
 }

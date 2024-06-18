@@ -4,6 +4,7 @@ plugins {
     id 'kotlin-kapt'
     id 'kotlinx-serialization'
     id 'dagger.hilt.android.plugin'
+    id 'com.google.protobuf' version '0.9.1'
 }
 
 android {
@@ -163,4 +164,24 @@ dependencies {
     testImplementation 'com.google.dagger:hilt-android-testing:2.51.1'
     kaptTest 'com.google.dagger:hilt-compiler:2.51.1'
     implementation "androidx.hilt:hilt-navigation-compose:1.2.0"
+
+    // Proto DataStore
+    implementation  "androidx.datastore:datastore:1.0.0"
+    implementation  "com.google.protobuf:protobuf-javalite:3.18.0"
+}
+
+protobuf {
+    protoc {
+        artifact = "com.google.protobuf:protoc:3.21.7"
+    }
+
+    generateProtoTasks {
+        all().each { task ->
+            task.builtins {
+                java {
+                    option 'lite'
+                }
+            }
+        }
+    }
 }

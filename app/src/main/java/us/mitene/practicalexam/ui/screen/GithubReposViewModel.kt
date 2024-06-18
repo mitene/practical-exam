@@ -6,11 +6,13 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
-import us.mitene.practicalexam.network.GithubApi
+import us.mitene.practicalexam.data.GithubRepoCacheRepository
 import javax.inject.Inject
 
 @HiltViewModel
-class GithubReposViewModel @Inject constructor() : ViewModel() {
+class GithubReposViewModel @Inject constructor(
+    private val githubRepoCacheRepository: GithubRepoCacheRepository,
+) : ViewModel() {
     private val _uiState = MutableStateFlow(GithubReposUiState(emptyList()))
     val uiState = _uiState.asStateFlow()
 
@@ -18,12 +20,11 @@ class GithubReposViewModel @Inject constructor() : ViewModel() {
         fetch()
     }
 
-    fun fetch() {
+    private fun fetch() {
         viewModelScope.launch {
-            val result = GithubApi.retrofitService.getRepos()
-            _uiState.value = GithubReposUiState(
-                result.map { it.name }
-            )
+            githubRepoCacheRepository.getNames().collect {
+                _uiState.value = GithubReposUiState(it)
+            }
         }
     }
 }
