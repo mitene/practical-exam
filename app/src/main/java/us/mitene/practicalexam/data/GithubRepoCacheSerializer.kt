@@ -1,4 +1,4 @@
-package us.mitene.practicalexam.datastore
+package us.mitene.practicalexam.data
 
 import androidx.datastore.core.CorruptionException
 import androidx.datastore.core.Serializer

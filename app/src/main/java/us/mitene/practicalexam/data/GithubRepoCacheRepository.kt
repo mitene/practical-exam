@@ -10,9 +10,8 @@ import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.flow.map
 import timber.log.Timber
-import us.mitene.practicalexam.datastore.GithubRepoCacheSerializer
 import us.mitene.practicalexam.datastore.proto.GithubRepoCache
-import us.mitene.practicalexam.network.GithubApi
+import us.mitene.practicalexam.network.GithubApiDataSource
 import java.io.IOException
 import java.time.ZonedDateTime
 import javax.inject.Inject
@@ -20,6 +19,7 @@ import javax.inject.Singleton
 
 @Singleton
 class GithubRepoCacheRepository @Inject constructor(
+    private val github: GithubApiDataSource,
     @ApplicationContext private val context: Context,
 ) {
     private val Context.githubRepoCacheStore: DataStore<GithubRepoCache> by dataStore(
@@ -53,7 +53,7 @@ class GithubRepoCacheRepository @Inject constructor(
 
     private suspend fun fetch() {
         context.githubRepoCacheStore.updateData { cache ->
-            val names = GithubApi.retrofitService.getRepos().map { it.name }
+            val names = github.getRepos().map { it.name }
             val fetchedAt = ZonedDateTime.now().toEpochSecond()
             Timber.tag(TAG).i("fetched cache at: $fetchedAt")
 
