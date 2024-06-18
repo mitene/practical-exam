@@ -1,5 +1,6 @@
 plugins {
-    id 'com.android.application'
+    alias(libs.plugins.com.android.application)
+//    id 'com.android.application'
     id 'kotlin-android'
     id 'kotlin-kapt'
     id 'kotlinx-serialization'
@@ -8,14 +9,14 @@ plugins {
 }
 
 android {
-    compileSdkVersion 34
+    compileSdkVersion libs.versions.app.compileSdk.get().toInteger()
 
     defaultConfig {
         applicationId "us.mitene.practicalexam"
-        minSdkVersion 26
-        targetSdkVersion 34
-        versionCode 1
-        versionName "1.0"
+        minSdkVersion libs.versions.app.minSdk.get().toInteger()
+        targetSdkVersion libs.versions.app.targetSdk.get().toInteger()
+        versionCode libs.versions.app.versionCode.get().toInteger()
+        versionName libs.versions.app.versionName.get()
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
@@ -42,7 +43,7 @@ android {
         targetCompatibility JavaVersion.VERSION_17
     }
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.5.11"
+        kotlinCompilerExtensionVersion = libs.versions.app.kotlinCompilerExtensionVersion.get()
     }
     kotlinOptions {
         jvmTarget = JavaVersion.VERSION_17.toString()
@@ -55,124 +56,118 @@ android {
 
 dependencies {
 
-    implementation 'androidx.core:core-ktx:1.13.1'
-    implementation 'androidx.appcompat:appcompat:1.6.1'
-    implementation 'com.google.android.material:material:1.12.0'
-    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
-    testImplementation 'junit:junit:4.13.2'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+    implementation libs.androidx.core.core.ktx
+    implementation libs.androidx.appcompat
+    implementation libs.com.google.android.material
+    implementation libs.androidx.constraintlayout
+    testImplementation libs.junit
+    androidTestImplementation libs.androidx.test.ext.junit
+    androidTestImplementation libs.androidx.test.espresso.espresso.core
 
     // jetpack compose bom
-    implementation platform('androidx.compose:compose-bom:2024.05.00')
-    implementation 'androidx.compose.ui:ui'
-    implementation 'androidx.compose.material:material'
-    implementation 'androidx.compose.material:material-icons-extended'
-    implementation 'androidx.compose.ui:ui-tooling-preview'
-    implementation 'androidx.compose.material3:material3'
-    debugImplementation 'androidx.compose.ui:ui-tooling'
-    debugImplementation 'androidx.compose.ui:ui-test-manifest'
-    implementation 'androidx.compose.runtime:runtime-livedata'
+    implementation platform(libs.androidx.compose.compose.bom)
+    implementation libs.androidx.ui
+    implementation libs.androidx.material
+    implementation libs.androidx.material.icons.extended
+    implementation libs.androidx.ui.tooling.preview
+    implementation libs.androidx.material3
+    debugImplementation libs.androidx.ui.tooling
+    debugImplementation libs.androidx.ui.test.manifest
+    implementation libs.androidx.runtime.livedata
     // jetpack compose
-    implementation 'androidx.activity:activity-compose:1.9.0'
-    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.8.0'
-    implementation 'androidx.lifecycle:lifecycle-viewmodel-compose:2.8.0'
+    implementation libs.androidx.activity.activity.compose
+    implementation libs.androidx.lifecycle.lifecycle.viewmodel.ktx
+    implementation libs.androidx.lifecycle.lifecycle.viewmodel.compose
 
     // for test
-    testImplementation 'org.robolectric:robolectric:4.12.1'
-    testImplementation "androidx.test:core:1.5.0"
-    testImplementation "androidx.test:core-ktx:1.5.0"
-    testImplementation "androidx.test.ext:junit:1.1.5"
-    testImplementation "androidx.test.ext:junit-ktx:1.1.5"
-    testImplementation("androidx.arch.core:core-testing:2.2.0")
-    testImplementation 'io.mockk:mockk:1.13.10'
-    testImplementation 'org.mockito:mockito-core:5.12.0'
+    testImplementation libs.org.robolectric
+    testImplementation libs.androidx.test.core
+    testImplementation libs.androidx.test.core.ktx
+    testImplementation libs.androidx.test.ext.junit
+    testImplementation libs.androidx.test.ext.junit.ktx
+    testImplementation(libs.androidx.arch.core.core.testing)
+    testImplementation libs.io.mockk
+    testImplementation libs.org.mockito.mockito.core
 
     // jet pack
-    implementation "androidx.fragment:fragment-ktx:1.7.1"
-    implementation "androidx.recyclerview:recyclerview:1.3.2"
+    implementation libs.androidx.fragment.fragment.ktx
+    implementation libs.androidx.recyclerview
 
     // androidx.lifecycle
-    def lifecycle_version = "2.8.0"
-    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
-    implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version"
+    implementation libs.androidx.lifecycle.lifecycle.viewmodel.ktx
+    implementation libs.androidx.lifecycle.lifecycle.livedata.ktx
     //noinspection LifecycleAnnotationProcessorWithJava8
-    kapt "androidx.lifecycle:lifecycle-compiler:$lifecycle_version"
-    implementation "androidx.lifecycle:lifecycle-process:$lifecycle_version"
+    kapt libs.androidx.lifecycle.lifecycle.compiler
+    implementation libs.androidx.lifecycle.lifecycle.process
 
     // room
-    def room_version = "2.6.1"
-    implementation("androidx.room:room-runtime:$room_version")
-    kapt "androidx.room:room-compiler:$room_version"
-    implementation("androidx.room:room-ktx:$room_version")
-    implementation("androidx.room:room-rxjava2:$room_version")
-    implementation("androidx.room:room-rxjava3:$room_version")
-    testImplementation("androidx.room:room-testing:$room_version")
+    implementation(libs.androidx.room.room.runtime)
+    kapt libs.androidx.room.room.compiler
+    implementation(libs.androidx.room.room.ktx)
+    implementation(libs.androidx.room.room.rxjava2)
+    implementation(libs.androidx.room.room.rxjava3)
+    testImplementation(libs.androidx.room.room.testing)
 
     // okhttp
-    def okhttp_version = "4.12.0"
-    implementation "com.squareup.okhttp3:okhttp:$okhttp_version"
-    implementation "com.squareup.okhttp3:logging-interceptor:$okhttp_version"
-    testImplementation "com.squareup.okhttp3:mockwebserver:$okhttp_version"
+    implementation libs.com.squareup.okhttp3.okhttp
+    implementation libs.com.squareup.okhttp3.logging.interceptor
+    testImplementation libs.com.squareup.okhttp3.mockwebserver
 
     // glide
-    def glide_version = '4.16.0'
-    implementation "com.github.bumptech.glide:glide:$glide_version"
-    implementation "com.github.bumptech.glide:glide:$glide_version"
-    implementation "com.github.bumptech.glide:annotations:$glide_version"
-    kapt "com.github.bumptech.glide:compiler:$glide_version"
+    implementation libs.com.github.bumptech.glide
+    implementation libs.com.github.bumptech.glide
+    implementation libs.com.github.bumptech.glide.annotations
+    kapt libs.com.github.bumptech.glide.compiler
 
     // coroutine
-    def coroutine_version = "1.8.0"
-    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutine_version"
-    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutine_version"
-    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-rx2:$coroutine_version"
-    testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutine_version"
+    implementation libs.org.jetbrains.kotlinx.kotlinx.coroutines.core
+    implementation libs.org.jetbrains.kotlinx.kotlinx.coroutines.android
+    implementation libs.org.jetbrains.kotlinx.kotlinx.coroutines.rx2
+    testImplementation libs.org.jetbrains.kotlinx.kotlinx.coroutines.test
 
     // rxjava
-    implementation "io.reactivex.rxjava2:rxjava:2.2.21"
-    implementation "io.reactivex.rxjava2:rxandroid:2.1.1"
-    implementation "io.reactivex.rxjava2:rxkotlin:2.4.0"
+    implementation libs.io.reactivex.rxjava2.rxjava
+    implementation libs.io.reactivex.rxjava2.rxandroid
+    implementation libs.io.reactivex.rxjava2.rxkotlin
 
     // retrofit
-    def retrofit2_version = "2.10.0"
-    implementation "com.squareup.retrofit2:retrofit:$retrofit2_version"
-    implementation "com.squareup.retrofit2:adapter-rxjava2:$retrofit2_version"
-    implementation "com.squareup.retrofit2:converter-gson:$retrofit2_version"
-    implementation "com.squareup.retrofit2:converter-moshi:$retrofit2_version"
-    implementation 'com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter:1.0.0'
+    implementation libs.com.squareup.retrofit2.retrofit
+    implementation libs.com.squareup.retrofit2.adapter.rxjava2
+    implementation libs.com.squareup.retrofit2.converter.gson
+    implementation libs.com.squareup.retrofit2.converter.moshi
+    implementation libs.com.jakewharton.retrofit.retrofit2.kotlinx.serialization.converter
 
     // gson
-    implementation "com.google.code.gson:gson:2.10.1"
+    implementation libs.com.google.code.gson
 
     // moshi
-    implementation 'com.squareup.moshi:moshi-kotlin:1.15.1'
+    implementation libs.com.squareup.moshi.moshi.kotlin
 
     // serialization
-    implementation 'org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.3'
+    implementation libs.org.jetbrains.kotlinx.kotlinx.serialization.json
 
     // timber
-    implementation "com.jakewharton.timber:timber:5.0.1"
+    implementation libs.com.jakewharton.timber
 
     // DI : dagger
-    implementation 'com.google.dagger:dagger:2.51.1'
-    kapt 'com.google.dagger:dagger-compiler:2.51.1'
+    implementation libs.com.google.dagger
+    kapt libs.com.google.dagger.dagger.compiler
 
     // DI : hilt
-    implementation 'com.google.dagger:hilt-android:2.51.1'
-    kapt 'com.google.dagger:hilt-compiler:2.51.1'
-    testImplementation 'com.google.dagger:hilt-android-testing:2.51.1'
-    kaptTest 'com.google.dagger:hilt-compiler:2.51.1'
-    implementation "androidx.hilt:hilt-navigation-compose:1.2.0"
+    implementation libs.com.google.dagger.hilt.android
+    kapt libs.com.google.dagger.hilt.compiler
+    testImplementation libs.com.google.dagger.hilt.android.testing
+    kaptTest libs.com.google.dagger.hilt.compiler
+    implementation libs.androidx.hilt.hilt.navigation.compose
 
     // Proto DataStore
-    implementation  "androidx.datastore:datastore:1.0.0"
-    implementation  "com.google.protobuf:protobuf-javalite:3.18.0"
+    implementation  libs.androidx.datastore
+    implementation  libs.com.google.protobuf.protobuf.javalite
 }
 
 protobuf {
     protoc {
-        artifact = "com.google.protobuf:protoc:3.21.7"
+        artifact = libs.com.google.protobuf.protoc.get()
     }
 
     generateProtoTasks {
