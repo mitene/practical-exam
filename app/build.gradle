@@ -1,18 +1,16 @@
 plugins {
-    alias(libs.plugins.com.android.application)
-//    id 'com.android.application'
+    id 'com.android.application'
     id 'kotlin-android'
     id 'kotlin-kapt'
     id 'kotlinx-serialization'
     id 'dagger.hilt.android.plugin'
-    id 'com.google.protobuf' version '0.9.1'
+    alias(libs.plugins.com.google.protobuf)
 }
 
 android {
-    compileSdkVersion libs.versions.app.compileSdk.get().toInteger()
-
     defaultConfig {
         applicationId "us.mitene.practicalexam"
+        compileSdk libs.versions.app.compileSdk.get().toInteger()
         minSdkVersion libs.versions.app.minSdk.get().toInteger()
         targetSdkVersion libs.versions.app.targetSdk.get().toInteger()
         versionCode libs.versions.app.versionCode.get().toInteger()
