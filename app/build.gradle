@@ -5,6 +5,7 @@ plugins {
     id 'kotlinx-serialization'
     id 'dagger.hilt.android.plugin'
     alias(libs.plugins.com.google.protobuf)
+    alias(libs.plugins.com.google.devtools.ksp)
 }
 
 android {
@@ -100,7 +101,7 @@ dependencies {
 
     // room
     implementation(libs.androidx.room.room.runtime)
-    kapt libs.androidx.room.room.compiler
+    ksp libs.androidx.room.room.compiler
     implementation(libs.androidx.room.room.ktx)
     implementation(libs.androidx.room.room.rxjava2)
     implementation(libs.androidx.room.room.rxjava3)
@@ -115,7 +116,7 @@ dependencies {
     implementation libs.com.github.bumptech.glide
     implementation libs.com.github.bumptech.glide
     implementation libs.com.github.bumptech.glide.annotations
-    kapt libs.com.github.bumptech.glide.compiler
+    ksp libs.com.github.bumptech.glide.compiler
 
     // coroutine
     implementation libs.org.jetbrains.kotlinx.kotlinx.coroutines.core

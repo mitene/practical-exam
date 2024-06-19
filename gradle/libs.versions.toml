@@ -54,7 +54,7 @@ androidx-ui-tooling-preview = { module = "androidx.compose.ui:ui-tooling-preview
 com-android-tools-build-gradle = "com.android.tools.build:gradle:8.4.1"
 com-github-bumptech-glide = { module = "com.github.bumptech.glide:glide", version.ref = "com-github-bumptech-glide" }
 com-github-bumptech-glide-annotations = { module = "com.github.bumptech.glide:annotations", version.ref = "com-github-bumptech-glide" }
-com-github-bumptech-glide-compiler = { module = "com.github.bumptech.glide:compiler", version.ref = "com-github-bumptech-glide" }
+com-github-bumptech-glide-compiler = { module = "com.github.bumptech.glide:ksp", version.ref = "com-github-bumptech-glide" }
 com-google-android-material = "com.google.android.material:material:1.12.0"
 com-google-code-gson = "com.google.code.gson:gson:2.10.1"
 com-google-dagger = { module = "com.google.dagger:dagger", version.ref = "com-google-dagger" }
@@ -92,3 +92,4 @@ org-robolectric = "org.robolectric:robolectric:4.12.1"
 
 [plugins]
 com-google-protobuf = "com.google.protobuf:0.9.1"
+com-google-devtools-ksp = "com.google.devtools.ksp:2.0.0-1.0.22"
