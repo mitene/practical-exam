@@ -1,6 +1,6 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 buildscript {
-    ext.kotlin_version = libs.versions.org.jetbrains.kotlin
+    ext.kotlin_version = libs.versions.kotlin
     repositories {
         google()
         mavenCentral()
@@ -19,6 +19,7 @@ buildscript {
 
 plugins {
     alias(libs.plugins.com.google.devtools.ksp) apply false
+    alias(libs.plugins.org.jetbrains.kotlin.plugin.compose) apply false
 }
 
 allprojects {

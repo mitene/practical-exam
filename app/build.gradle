@@ -4,8 +4,9 @@ plugins {
     id 'kotlin-kapt'
     id 'kotlinx-serialization'
     id 'dagger.hilt.android.plugin'
-    alias(libs.plugins.com.google.protobuf)
     alias(libs.plugins.com.google.devtools.ksp)
+    alias(libs.plugins.com.google.protobuf)
+    alias(libs.plugins.org.jetbrains.kotlin.plugin.compose)
 }
 
 android {

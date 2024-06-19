@@ -1,4 +1,5 @@
 [versions]
+kotlin = "2.0.0"
 androidx-lifecycle = "2.8.0"
 androidx-room = "2.6.1"
 androidx-test = "1.5.0"
@@ -13,7 +14,6 @@ com-github-bumptech-glide = "4.16.0"
 com-google-dagger = "2.51.1"
 com-squareup-okhttp3 = "4.12.0"
 com-squareup-retrofit2 = "2.10.0"
-org-jetbrains-kotlin = "1.9.23"
 org-jetbrains-kotlinx = "1.8.0"
 
 [libraries]
@@ -80,8 +80,8 @@ io-reactivex-rxjava2-rxandroid = "io.reactivex.rxjava2:rxandroid:2.1.1"
 io-reactivex-rxjava2-rxjava = "io.reactivex.rxjava2:rxjava:2.2.21"
 io-reactivex-rxjava2-rxkotlin = "io.reactivex.rxjava2:rxkotlin:2.4.0"
 junit = "junit:junit:4.13.2"
-org-jetbrains-kotlin-kotlin-gradle-plugin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "org-jetbrains-kotlin" }
-org-jetbrains-kotlin-kotlin-serialization = { module = "org.jetbrains.kotlin:kotlin-serialization", version.ref = "org-jetbrains-kotlin" }
+org-jetbrains-kotlin-kotlin-gradle-plugin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
+org-jetbrains-kotlin-kotlin-serialization = { module = "org.jetbrains.kotlin:kotlin-serialization", version.ref = "kotlin" }
 org-jetbrains-kotlinx-kotlinx-coroutines-android = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-android", version.ref = "org-jetbrains-kotlinx" }
 org-jetbrains-kotlinx-kotlinx-coroutines-core = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "org-jetbrains-kotlinx" }
 org-jetbrains-kotlinx-kotlinx-coroutines-rx2 = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-rx2", version.ref = "org-jetbrains-kotlinx" }
@@ -93,3 +93,4 @@ org-robolectric = "org.robolectric:robolectric:4.12.1"
 [plugins]
 com-google-protobuf = "com.google.protobuf:0.9.1"
 com-google-devtools-ksp = "com.google.devtools.ksp:2.0.0-1.0.22"
+org-jetbrains-kotlin-plugin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
