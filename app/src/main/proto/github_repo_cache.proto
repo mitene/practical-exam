@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+option java_package = "us.mitene.practicalexam.datastore.proto";
+option java_multiple_files = true;
+
+message GithubRepoCache {
+  // 最後にfetchしたDatetime
+  int64 fetchedAt = 1;
+  // レポジトリ名一覧
+  repeated string names = 2;
+}
