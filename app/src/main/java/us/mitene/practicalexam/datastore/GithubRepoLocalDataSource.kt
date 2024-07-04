@@ -1,32 +1,32 @@
-package us.mitene.practicalexam.data
+package us.mitene.practicalexam.datastore
 
 import android.content.Context
 import androidx.datastore.core.DataStore
 import androidx.datastore.dataStore
 import dagger.hilt.android.qualifiers.ApplicationContext
-import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.flow.catch
-import kotlinx.coroutines.flow.first
-import kotlinx.coroutines.flow.flowOf
-import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.withContext
 import timber.log.Timber
 import us.mitene.practicalexam.datastore.proto.GithubRepoCache
-import us.mitene.practicalexam.network.GithubApiDataSource
+import us.mitene.practicalexam.di.IoDispatcher
+import us.mitene.practicalexam.network.GithubRepo
 import java.io.IOException
 import java.time.ZonedDateTime
 import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
-class GithubRepoCacheRepository @Inject constructor(
-    private val github: GithubApiDataSource,
+class GithubRepoLocalDataSource @Inject constructor(
     @ApplicationContext private val context: Context,
+    @IoDispatcher private val dispatcher: CoroutineDispatcher,
 ) {
-    private val Context.githubRepoCacheStore: DataStore<GithubRepoCache> by dataStore(
+    private val Context.githubRepoStore: DataStore<GithubRepoCache> by dataStore(
         fileName = DATA_STORE_FILE_NAME,
         serializer = GithubRepoCacheSerializer
     )
-    private val repoCacheFlow = context.githubRepoCacheStore.data
+
+    val repos = context.githubRepoStore.data
         .catch { exception ->
             // dataStore.data throws an IOException when an error is encountered when reading data
             if (exception is IOException) {
@@ -37,25 +37,10 @@ class GithubRepoCacheRepository @Inject constructor(
             }
         }
 
-    suspend fun getNames(): Flow<List<String>> {
-        val cache = repoCacheFlow.first()
-        Timber.tag(TAG).i("lastFetchedAt: ${cache.fetchedAt}")
-        val now = ZonedDateTime.now().toEpochSecond() - cache.fetchedAt
-
-        if (now > CACHE_DURATION) {
-            fetch()
-
-            return repoCacheFlow.map { it.namesList }
-        }
-
-        return flowOf(cache.namesList)
-    }
-
-    private suspend fun fetch() {
-        context.githubRepoCacheStore.updateData { cache ->
-            val names = github.getRepos().map { it.name }
+    suspend fun storeRepos(repos: List<GithubRepo>) = withContext(dispatcher) {
+        context.githubRepoStore.updateData { cache ->
+            val names = repos.map { it.name }
             val fetchedAt = ZonedDateTime.now().toEpochSecond()
-            Timber.tag(TAG).i("fetched cache at: $fetchedAt")
 
             cache.toBuilder()
                 .setFetchedAt(fetchedAt)
@@ -68,6 +53,5 @@ class GithubRepoCacheRepository @Inject constructor(
     companion object {
         private const val DATA_STORE_FILE_NAME = "github_repo_cache.pb"
         private const val TAG: String = "GithubRepoCacheRepo"
-        private const val CACHE_DURATION = 30 // 秒で指定
     }
 }

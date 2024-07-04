@@ -14,7 +14,7 @@ interface GithubApi {
 }
 
 @Singleton
-class GithubApiDataSource @Inject constructor() {
+class GithubRepoRemoteDataSource @Inject constructor() {
     private val json = Json { ignoreUnknownKeys = true }
     private val retrofit = Retrofit.Builder()
         .addConverterFactory(json.asConverterFactory("application/json".toMediaType()))
