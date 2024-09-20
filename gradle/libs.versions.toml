@@ -9,6 +9,7 @@ lifecycleRuntimeKtx = "2.8.6"
 activityCompose = "1.9.2"
 composeBom = "2024.09.02"
 googleDagger = "2.51.1"
+androidxRoom = "2.6.1"
 
 material = "1.12.0"
 
@@ -35,6 +36,7 @@ google-dagger-hilt-android-testing = { group = "com.google.dagger", name = "hilt
 google-dagger-hilt-compiler = { group = "com.google.dagger", name = "hilt-compiler", version.ref = "googleDagger" }
 
 [plugins]
+androidx-room = { id = "androidx.room", version.ref = "androidxRoom" }
 android-application = { id = "com.android.application", version.ref = "agp" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }

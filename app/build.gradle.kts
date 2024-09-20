@@ -6,6 +6,7 @@ plugins {
     alias(libs.plugins.kotlin.parcelize)
     alias(libs.plugins.kotlin.serialization)
     alias(libs.plugins.google.dagger.hilt.android)
+    alias(libs.plugins.androidx.room)
 }
 
 android {
@@ -52,6 +53,9 @@ android {
     }
     kapt {
         correctErrorTypes = true
+    }
+    room {
+        schemaDirectory("$projectDir/schemas")
     }
 }
 
