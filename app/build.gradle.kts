@@ -71,7 +71,7 @@ dependencies {
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
     testImplementation(libs.junit)
-    androidTestImplementation(libs.androidx.junit)
+//    androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
     androidTestImplementation(platform(libs.androidx.compose.bom))
     androidTestImplementation(libs.androidx.ui.test.junit4)
@@ -111,18 +111,26 @@ dependencies {
     implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.8.0")
 
     // for test
-    testImplementation("org.robolectric:robolectric:4.12.1")
-    testImplementation("androidx.test:core:1.5.0")
-    testImplementation("androidx.test:core-ktx:1.5.0")
-    testImplementation("androidx.test.ext:junit:1.1.5")
-    testImplementation("androidx.test.ext:junit-ktx:1.1.5")
-    testImplementation("androidx.arch.core:core-testing:2.2.0")
-    testImplementation("io.mockk:mockk:1.13.10")
-    testImplementation("org.mockito:mockito-core:5.12.0")
+    testImplementation(libs.robolectric)
+    testImplementation(libs.mockito.android)
+    testImplementation(libs.mockito.core)
+    testImplementation(libs.mockitokotlin2)
+    testImplementation(libs.turbine)
+    testImplementation(libs.mockk)
+
+    // androidx test
+    testImplementation(libs.androidx.test.core.ktx)
+    testImplementation(libs.androidx.test.ext.junit)
+    testImplementation(libs.androidx.test.ext.junit.ktx)
+    testImplementation(libs.androidx.test.runner)
+    testImplementation(libs.androidx.test.rules)
+    testImplementation(libs.androidx.test.espresso.core)
+    testImplementation(libs.androidx.test.espresso.intents)
+    testImplementation(libs.androidx.test.uiautomator)
 
     // jet pack
-    implementation("androidx.fragment:fragment-ktx:1.7.1")
-    implementation("androidx.recyclerview:recyclerview:1.3.2")
+    implementation(libs.androidx.fragment.ktx)
+    implementation(libs.androidx.recyclerview)
 
     // androidx.lifecycle
     implementation(libs.androidx.lifecycle.livedata.ktx)
