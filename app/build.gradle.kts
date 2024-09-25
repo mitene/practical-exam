@@ -159,16 +159,15 @@ dependencies {
 
     // rxjava3
     implementation(libs.reactivex.rxjava3.rxandroid)
-    implementation(libs.reactivex.rxjava3.rxandroid)
+    implementation(libs.reactivex.rxjava3.rxjava)
     implementation(libs.reactivex.rxjava3.rxkotlin)
 
     // retrofit
-    val retrofit2_version = "2.10.0"
-    implementation("com.squareup.retrofit2:retrofit:$retrofit2_version")
-    implementation("com.squareup.retrofit2:adapter-rxjava2:$retrofit2_version")
-    implementation("com.squareup.retrofit2:converter-gson:$retrofit2_version")
-    implementation("com.squareup.retrofit2:converter-moshi:$retrofit2_version")
-    implementation("com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter:1.0.0")
+    implementation(libs.squareup.retrofit2.retrofit)
+    implementation(libs.squareup.retrofit2.adapter.rxjava3)
+    implementation(libs.squareup.retrofit2.converter.gson)
+    implementation(libs.squareup.retrofit2.converter.moshi)
+    implementation(libs.squareup.retrofit2.converter.kotlinx.serialization)
 
     // gson
     implementation("com.google.code.gson:gson:2.10.1")

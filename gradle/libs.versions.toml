@@ -12,6 +12,7 @@ androidxRoom = "2.6.1"
 squareupOkhttp3 = "4.12.0"
 bumptechGlide = "4.16.0"
 bumptechGlideCompose = "1.0.0-beta01"
+squareupRetrofit2 = "2.11.0"
 
 kotlin = "2.0.10"
 kotlinxSerialization = "1.6.3"
@@ -58,7 +59,6 @@ bumptech-glide = { group = "com.github.bumptech.glide", name = "glide", version.
 bumptech-glide-annotations = { group = "com.github.bumptech.glide", name = "annotations", version.ref = "bumptechGlide" }
 bumptech-glide-compiler = { group = "com.github.bumptech.glide", name = "compiler", version.ref = "bumptechGlide" }
 bumptech-glide-compose = { group = "com.github.bumptech.glide", name = "compose", version.ref = "bumptechGlideCompose" }
-bumptech-glide-okhttp3-integration = { group = "com.github.bumptech.glide", name = "okhttp3-integration", version.ref = "bumptechGlide" }
 
 # coroutine
 kotlinx-coroutines-android = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-android", version.ref = "kotlinxCoroutines" }
@@ -70,6 +70,13 @@ kotlinx-coroutines-test = { group = "org.jetbrains.kotlinx", name = "kotlinx-cor
 reactivex-rxjava3-rxandroid = { group = "io.reactivex.rxjava3", name = "rxandroid", version.ref = "reactivexRxjava3Rxandroid" }
 reactivex-rxjava3-rxjava = { group = "io.reactivex.rxjava3", name = "rxjava", version.ref = "reactivexRxjava3Rxjava" }
 reactivex-rxjava3-rxkotlin = { group = "io.reactivex.rxjava3", name = "rxkotlin", version.ref = "reactivexRxjava3Rxkotlin" }
+
+# retrofit2
+squareup-retrofit2-retrofit = { group = "com.squareup.retrofit2", name = "retrofit", version.ref = "squareupRetrofit2" }
+squareup-retrofit2-adapter-rxjava3 = { group = "com.squareup.retrofit2", name = "adapter-rxjava3", version.ref = "squareupRetrofit2" }
+squareup-retrofit2-converter-kotlinx-serialization = { group = "com.squareup.retrofit2", name = "converter-kotlinx-serialization", version.ref = "squareupRetrofit2" }
+squareup-retrofit2-converter-gson = { group = "com.squareup.retrofit2", name = "converter-gson", version.ref = "squareupRetrofit2" }
+squareup-retrofit2-converter-moshi = { group = "com.squareup.retrofit2", name = "converter-moshi", version.ref = "squareupRetrofit2" }
 
 # dagger for hilt
 google-dagger-hilt-android = { group = "com.google.dagger", name = "hilt-android", version.ref = "googleDagger" }
