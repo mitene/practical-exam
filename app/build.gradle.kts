@@ -133,13 +133,12 @@ dependencies {
     implementation("androidx.lifecycle:lifecycle-process:$lifecycle_version")
 
     // room
-    val room_version = "2.6.1"
-    implementation("androidx.room:room-runtime:$room_version")
-    kapt("androidx.room:room-compiler:$room_version")
-    implementation("androidx.room:room-ktx:$room_version")
-    implementation("androidx.room:room-rxjava2:$room_version")
-    implementation("androidx.room:room-rxjava3:$room_version")
-    testImplementation("androidx.room:room-testing:$room_version")
+    implementation(libs.androidx.room.runtime)
+    kapt(libs.androidx.room.compiler)
+    implementation(libs.androidx.room.ktx)
+    implementation(libs.androidx.room.rxjava2)
+    implementation(libs.androidx.room.rxjava3)
+    testImplementation(libs.androidx.room.testing)
 
     // okhttp
     val okhttp_version = "4.12.0"
