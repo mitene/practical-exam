@@ -141,10 +141,9 @@ dependencies {
     testImplementation(libs.androidx.room.testing)
 
     // okhttp
-    val okhttp_version = "4.12.0"
-    implementation("com.squareup.okhttp3:okhttp:$okhttp_version")
-    implementation("com.squareup.okhttp3:logging-interceptor:$okhttp_version")
-    testImplementation("com.squareup.okhttp3:mockwebserver:$okhttp_version")
+    implementation(libs.squareup.okhttp3.okhttp)
+    implementation(libs.squareup.okhttp3.logging.interceptor)
+    testImplementation(libs.squareup.okhttp3.mockwebserver)
 
     // glide
     val glide_version = ("4.16.0")
