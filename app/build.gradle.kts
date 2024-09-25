@@ -170,14 +170,14 @@ dependencies {
     implementation(libs.squareup.retrofit2.converter.kotlinx.serialization)
 
     // gson
-    implementation("com.google.code.gson:gson:2.10.1")
+    implementation(libs.google.code.gson)
 
     // moshi
-    implementation("com.squareup.moshi:moshi-kotlin:1.15.1")
+    implementation(libs.squareup.moshi)
 
     // serialization
-    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.3")
+    implementation(libs.kotlinx.serialization.json)
 
     // timber
-    implementation("com.jakewharton.timber:timber:5.0.1")
+    implementation(libs.jakewharton.timber)
 }

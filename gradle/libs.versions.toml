@@ -13,6 +13,9 @@ squareupOkhttp3 = "4.12.0"
 bumptechGlide = "4.16.0"
 bumptechGlideCompose = "1.0.0-beta01"
 squareupRetrofit2 = "2.11.0"
+gson = "2.10.1"
+moshi = "2.10.1"
+jakewhartonTimber = "5.0.1"
 
 kotlin = "2.0.10"
 kotlinxSerialization = "1.6.3"
@@ -78,10 +81,23 @@ squareup-retrofit2-converter-kotlinx-serialization = { group = "com.squareup.ret
 squareup-retrofit2-converter-gson = { group = "com.squareup.retrofit2", name = "converter-gson", version.ref = "squareupRetrofit2" }
 squareup-retrofit2-converter-moshi = { group = "com.squareup.retrofit2", name = "converter-moshi", version.ref = "squareupRetrofit2" }
 
+# gson
+google-code-gson = { group = "com.google.code.gson", name = "gson", version.ref = "gson" }
+
+# moshi
+squareup-moshi = { group = "com.squareup.moshi", name = "moshi", version.ref = "moshi" }
+
+# serialization
+kotlinx-serialization-json = { group = "org.jetbrains.kotlinx", name = "kotlinx-serialization-json", version.ref = "kotlinxSerialization" }
+
+# timber
+jakewharton-timber = { group = "com.jakewharton.timber", name = "timber", version.ref = "jakewhartonTimber" }
+
 # dagger for hilt
 google-dagger-hilt-android = { group = "com.google.dagger", name = "hilt-android", version.ref = "googleDagger" }
 google-dagger-hilt-android-testing = { group = "com.google.dagger", name = "hilt-android-testing", version.ref = "googleDagger" }
 google-dagger-hilt-compiler = { group = "com.google.dagger", name = "hilt-compiler", version.ref = "googleDagger" }
+
 
 [plugins]
 androidx-room = { id = "androidx.room", version.ref = "androidxRoom" }
