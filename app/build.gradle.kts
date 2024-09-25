@@ -148,6 +148,7 @@ dependencies {
     // glide
     implementation(libs.bumptech.glide)
     implementation(libs.bumptech.glide.annotations)
+    implementation(libs.bumptech.glide.compose)
     kapt(libs.bumptech.glide.compiler)
 
     // coroutine
@@ -156,10 +157,10 @@ dependencies {
     implementation(libs.kotlinx.coroutines.rx3)
     testImplementation(libs.kotlinx.coroutines.test)
 
-    // rxjava
-    implementation("io.reactivex.rxjava2:rxjava:2.2.21")
-    implementation("io.reactivex.rxjava2:rxandroid:2.1.1")
-    implementation("io.reactivex.rxjava2:rxkotlin:2.4.0")
+    // rxjava3
+    implementation(libs.reactivex.rxjava3.rxandroid)
+    implementation(libs.reactivex.rxjava3.rxandroid)
+    implementation(libs.reactivex.rxjava3.rxkotlin)
 
     // retrofit
     val retrofit2_version = "2.10.0"

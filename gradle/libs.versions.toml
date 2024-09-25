@@ -11,10 +11,15 @@ googleDagger = "2.51.1"
 androidxRoom = "2.6.1"
 squareupOkhttp3 = "4.12.0"
 bumptechGlide = "4.16.0"
+bumptechGlideCompose = "1.0.0-beta01"
 
 kotlin = "2.0.10"
 kotlinxSerialization = "1.6.3"
 kotlinxCoroutines = "1.8.1"
+
+reactivexRxjava3Rxandroid = "3.0.2"
+reactivexRxjava3Rxjava = "3.1.8"
+reactivexRxjava3Rxkotlin = "3.0.1"
 
 material = "1.12.0"
 
@@ -60,6 +65,11 @@ kotlinx-coroutines-android = { group = "org.jetbrains.kotlinx", name = "kotlinx-
 kotlinx-coroutines-core = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-core", version.ref = "kotlinxCoroutines" }
 kotlinx-coroutines-rx3 = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-rx3", version.ref = "kotlinxCoroutines" }
 kotlinx-coroutines-test = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-test", version.ref = "kotlinxCoroutines" }
+
+# rxjava
+reactivex-rxjava3-rxandroid = { group = "io.reactivex.rxjava3", name = "rxandroid", version.ref = "reactivexRxjava3Rxandroid" }
+reactivex-rxjava3-rxjava = { group = "io.reactivex.rxjava3", name = "rxjava", version.ref = "reactivexRxjava3Rxjava" }
+reactivex-rxjava3-rxkotlin = { group = "io.reactivex.rxjava3", name = "rxkotlin", version.ref = "reactivexRxjava3Rxkotlin" }
 
 # dagger for hilt
 google-dagger-hilt-android = { group = "com.google.dagger", name = "hilt-android", version.ref = "googleDagger" }
