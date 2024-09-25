@@ -125,12 +125,16 @@ dependencies {
     implementation("androidx.recyclerview:recyclerview:1.3.2")
 
     // androidx.lifecycle
-    val lifecycle_version = "2.8.0"
-    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version")
-    implementation("androidx.lifecycle:lifecycle-livedata-ktx:$lifecycle_version")
-    //noinspection LifecycleAnnotationProcessorWithJava8
-    kapt("androidx.lifecycle:lifecycle-compiler:$lifecycle_version")
-    implementation("androidx.lifecycle:lifecycle-process:$lifecycle_version")
+    implementation(libs.androidx.lifecycle.livedata.ktx)
+    implementation(libs.androidx.lifecycle.viewmodel.ktx)
+    implementation(libs.androidx.lifecycle.viewmodel.savedstate)
+    implementation(libs.androidx.lifecycle.viewmodel.compose)
+    implementation(libs.androidx.lifecycle.service)
+    implementation(libs.androidx.lifecycle.process)
+    implementation(libs.androidx.lifecycle.runtime.compose)
+    implementation(libs.androidx.lifecycle.runtime.ktx)
+    implementation(libs.androidx.lifecycle.runtime.testing)
+    implementation(libs.androidx.lifecycle.common.java8)
 
     // room
     implementation(libs.androidx.room.runtime)
