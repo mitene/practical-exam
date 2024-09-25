@@ -151,11 +151,10 @@ dependencies {
     kapt(libs.bumptech.glide.compiler)
 
     // coroutine
-    val coroutine_version = "1.8.0"
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutine_version")
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutine_version")
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-rx2:$coroutine_version")
-    testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutine_version")
+    implementation(libs.kotlinx.coroutines.android)
+    implementation(libs.kotlinx.coroutines.core)
+    implementation(libs.kotlinx.coroutines.rx3)
+    testImplementation(libs.kotlinx.coroutines.test)
 
     // rxjava
     implementation("io.reactivex.rxjava2:rxjava:2.2.21")
