@@ -11,6 +11,7 @@ composeBom = "2024.09.02"
 googleDagger = "2.51.1"
 androidxRoom = "2.6.1"
 squareupOkhttp3 = "4.12.0"
+bumptechGlide = "4.16.0"
 
 material = "1.12.0"
 
@@ -43,6 +44,13 @@ androidx-room-rxjava2 = { module = "androidx.room:room-rxjava2", version.ref = "
 squareup-okhttp3-logging-interceptor = { group = "com.squareup.okhttp3", name = "logging-interceptor", version.ref = "squareupOkhttp3" }
 squareup-okhttp3-mockwebserver = { group = "com.squareup.okhttp3", name = "mockwebserver", version.ref = "squareupOkhttp3" }
 squareup-okhttp3-okhttp = { group = "com.squareup.okhttp3", name = "okhttp", version.ref = "squareupOkhttp3" }
+
+# glide
+bumptech-glide = { group = "com.github.bumptech.glide", name = "glide", version.ref = "bumptechGlide" }
+bumptech-glide-annotations = { group = "com.github.bumptech.glide", name = "annotations", version.ref = "bumptechGlide" }
+bumptech-glide-compiler = { group = "com.github.bumptech.glide", name = "compiler", version.ref = "bumptechGlide" }
+bumptech-glide-compose = { group = "com.github.bumptech.glide", name = "compose", version.ref = "bumptechGlideCompose" }
+bumptech-glide-okhttp3-integration = { group = "com.github.bumptech.glide", name = "okhttp3-integration", version.ref = "bumptechGlide" }
 
 # dagger for hilt
 google-dagger-hilt-android = { group = "com.google.dagger", name = "hilt-android", version.ref = "googleDagger" }

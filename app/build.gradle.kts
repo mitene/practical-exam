@@ -134,11 +134,11 @@ dependencies {
 
     // room
     implementation(libs.androidx.room.runtime)
-    kapt(libs.androidx.room.compiler)
     implementation(libs.androidx.room.ktx)
     implementation(libs.androidx.room.rxjava2)
     implementation(libs.androidx.room.rxjava3)
     testImplementation(libs.androidx.room.testing)
+    kapt(libs.androidx.room.compiler)
 
     // okhttp
     implementation(libs.squareup.okhttp3.okhttp)
@@ -146,11 +146,9 @@ dependencies {
     testImplementation(libs.squareup.okhttp3.mockwebserver)
 
     // glide
-    val glide_version = ("4.16.0")
-    implementation("com.github.bumptech.glide:glide:$glide_version")
-    implementation("com.github.bumptech.glide:glide:$glide_version")
-    implementation("com.github.bumptech.glide:annotations:$glide_version")
-    kapt("com.github.bumptech.glide:compiler:$glide_version")
+    implementation(libs.bumptech.glide)
+    implementation(libs.bumptech.glide.annotations)
+    kapt(libs.bumptech.glide.compiler)
 
     // coroutine
     val coroutine_version = "1.8.0"
